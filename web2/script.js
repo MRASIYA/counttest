@@ -296,7 +296,54 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add CSS for blinking cursor
+// Tab switching functions for form display
+function showLocalForm() {
+    // Hide all form containers
+    document.querySelectorAll('.form-container').forEach(container => {
+        container.classList.remove('active');
+    });
+    
+    // Remove active class from all tab buttons
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    // Show local form and activate button
+    document.getElementById('localForm').classList.add('active');
+    event.target.classList.add('active');
+}
+
+function showGoogleForm() {
+    // Hide all form containers
+    document.querySelectorAll('.form-container').forEach(container => {
+        container.classList.remove('active');
+    });
+    
+    // Remove active class from all tab buttons
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    // Show Google form and activate button
+    document.getElementById('googleForm').classList.add('active');
+    event.target.classList.add('active');
+    
+    // Reload iframe to ensure fresh content
+    const iframe = document.getElementById('googleScriptFrame');
+    if (iframe) {
+        iframe.src = iframe.src;
+    }
+}
+
+function openGoogleFormNewTab() {
+    // Open Google Apps Script form in new tab
+    window.open('https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec', '_blank');
+    
+    // Show success message
+    showSuccessMessage('🚀 Google Apps Script form opened in new tab!');
+}
+
+// Add CSS for blinking cursor and form tabs
 const style = document.createElement('style');
 style.textContent = `
     @keyframes blink {

@@ -64,12 +64,49 @@
         <section id="contact" class="section">
             <div class="container">
                 <h2>Contact</h2>
-                <form class="contact-form" id="contactForm">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+                
+                <!-- Google Apps Script Form Display -->
+                <div class="gas-form-container">
+                    <h3>📋 Google Apps Script Form</h3>
+                    <p>View and interact with the Google Apps Script form directly:</p>
+                    
+                    <div class="form-tabs">
+                        <button class="tab-button active" onclick="showLocalForm()">Local Form</button>
+                        <button class="tab-button" onclick="showGoogleForm()">Google Script Form</button>
+                        <button class="tab-button" onclick="openGoogleFormNewTab()">Open in New Tab</button>
+                    </div>
+                    
+                    <!-- Local Contact Form -->
+                    <div id="localForm" class="form-container active">
+                        <h4>Local Contact Form (Submits to Google Apps Script)</h4>
+                        <form class="contact-form" id="contactForm">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Google Apps Script Form Embed -->
+                    <div id="googleForm" class="form-container">
+                        <h4>Google Apps Script Form (Direct View)</h4>
+                        <div class="iframe-container">
+                            <iframe 
+                                id="googleScriptFrame"
+                                src="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec"
+                                width="100%" 
+                                height="600"
+                                frameborder="0"
+                                scrolling="auto"
+                                title="Google Apps Script Form">
+                                <p>Your browser does not support iframes. 
+                                <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" target="_blank">Click here to open the form in a new window</a>.
+                                </p>
+                            </iframe>
+                        </div>
+                        <p class="iframe-note">💡 If the form doesn't load properly, click "Open in New Tab" above.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
