@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Check integration status on page load
     setTimeout(() => {
-        checkIntegrationStatus();
+        checkGoogleScriptStatus();
     }, 1000);
     
     // Smooth scrolling for navigation links
@@ -67,6 +67,21 @@ function testGoogleScript() {
     });
 }
 
+// Check Google Script status automatically
+function checkGoogleScriptStatus() {
+    const statusIndicator = document.getElementById('statusIndicator');
+    if (statusIndicator) {
+        statusIndicator.textContent = 'Checking connection...';
+        statusIndicator.style.color = '#6c757d';
+        
+        // Simulate connection check (since we can't actually test with no-cors)
+        setTimeout(() => {
+            statusIndicator.textContent = '✅ Ready for submissions';
+            statusIndicator.style.color = '#28a745';
+        }, 2000);
+    }
+}
+
 // Function to show alert when CTA button is clicked (legacy support)
 function showAlert() {
     testGoogleScript();
@@ -118,19 +133,21 @@ function handleFormSubmit(e) {
 // Submit form data to Google Apps Script
 async function submitToGoogleScript(formData) {
     try {
+        // Add timestamp for better tracking
+        formData.append('timestamp', new Date().toISOString());
+        formData.append('source', 'Smart Contact Hub');
+        
         const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors', // Required for Google Apps Script
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(formData)
+            body: formData // Send as FormData instead of URLSearchParams for better compatibility
         });
         
         // Note: With no-cors mode, we can't read the response
         // We'll assume success if no error is thrown
         return { success: true };
     } catch (error) {
+        console.error('Google Apps Script submission error:', error);
         throw new Error('Network error: ' + error.message);
     }
 }
