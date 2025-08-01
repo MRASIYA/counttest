@@ -343,6 +343,23 @@ function openGoogleFormNewTab() {
     showSuccessMessage('🚀 Google Apps Script form opened in new tab!');
 }
 
+// Iframe loading and error handling functions
+function hideLoadingMessage() {
+    const loadingMessage = document.getElementById('loadingMessage');
+    if (loadingMessage) {
+        loadingMessage.style.display = 'none';
+    }
+}
+
+function showIframeError() {
+    const iframeContainer = document.getElementById('iframeContainer');
+    const fallbackOptions = document.getElementById('fallbackOptions');
+    if (iframeContainer && fallbackOptions) {
+        iframeContainer.style.display = 'none';
+        fallbackOptions.style.display = 'block';
+    }
+}
+
 // Add CSS for blinking cursor and form tabs
 const style = document.createElement('style');
 style.textContent = `

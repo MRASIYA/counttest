@@ -89,8 +89,14 @@
                     
                     <!-- Google Apps Script Form Embed -->
                     <div id="googleForm" class="form-container">
-                        <h4>Google Apps Script Form (Direct View)</h4>
-                        <div class="iframe-container">
+                        <h4>Google Apps Script Form (Direct Access)</h4>
+                        
+                        <!-- Main iframe container -->
+                        <div class="iframe-container" id="iframeContainer">
+                            <div class="iframe-loading" id="loadingMessage">
+                                <h3>🔄 Loading Google Apps Script Form...</h3>
+                                <p>Please wait while we load your form.</p>
+                            </div>
                             <iframe 
                                 id="googleScriptFrame"
                                 src="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec"
@@ -98,13 +104,37 @@
                                 height="600"
                                 frameborder="0"
                                 scrolling="auto"
-                                title="Google Apps Script Form">
-                                <p>Your browser does not support iframes. 
-                                <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" target="_blank">Click here to open the form in a new window</a>.
-                                </p>
+                                title="Google Apps Script Form"
+                                onload="hideLoadingMessage()"
+                                onerror="showIframeError()">
+                                <p>Your browser does not support iframes.</p>
                             </iframe>
                         </div>
-                        <p class="iframe-note">💡 If the form doesn't load properly, click "Open in New Tab" above.</p>
+                        
+                        <!-- Fallback options -->
+                        <div class="fallback-options" id="fallbackOptions" style="display: none;">
+                            <h4>⚠️ Direct Embedding Not Available</h4>
+                            <p>Google Apps Script may restrict iframe embedding. Please use one of these options:</p>
+                            
+                            <div style="text-align: center; margin: 2rem 0;">
+                                <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" 
+                                   target="_blank" 
+                                   class="gas-direct-link">
+                                    🚀 Open Google Apps Script Form
+                                </a>
+                            </div>
+                            
+                            <div class="alternative-info">
+                                <h5>📋 Form Details:</h5>
+                                <ul style="text-align: left; margin: 1rem 0; padding-left: 2rem;">
+                                    <li><strong>URL:</strong> <code>https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec</code></li>
+                                    <li><strong>Purpose:</strong> Direct access to Google Apps Script form interface</li>
+                                    <li><strong>Features:</strong> Real-time data processing and cloud storage</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="iframe-note">💡 If the embedded form doesn't appear, Google Apps Script may have iframe restrictions. Use the "Open in New Tab" button above for direct access.</p>
                     </div>
                 </div>
             </div>

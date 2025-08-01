@@ -221,6 +221,141 @@ nav {
     transition: color 0.3s ease;
 }
 
+/* Google Apps Script Form Container */
+.gas-form-container {
+    margin-top: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gas-form-container h3 {
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.gas-form-container > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* Form Tabs */
+.form-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background: #e9ecef;
+    color: #495057;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.tab-button:hover {
+    background: #dee2e6;
+    transform: translateY(-2px);
+}
+
+.tab-button.active {
+    background: #2c5aa0;
+    color: white;
+    box-shadow: 0 4px 8px rgba(44, 90, 160, 0.3);
+}
+
+/* Form Containers */
+.form-container {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-container.active {
+    display: block;
+}
+
+.form-container h4 {
+    color: #2c5aa0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Iframe Container */
+.iframe-container {
+    position: relative;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 1rem 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iframe-container iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.iframe-note {
+    background: #fff3cd;
+    color: #856404;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 1rem;
+    border-left: 4px solid #ffc107;
+    font-size: 0.9rem;
+}
+
+/* Loading message for iframe */
+.iframe-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #6c757d;
+}
+
+/* Alternative link styling */
+.gas-direct-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.gas-direct-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Footer */
 footer {
     background: #333;
