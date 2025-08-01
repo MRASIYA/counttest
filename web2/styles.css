@@ -201,6 +201,26 @@ nav {
     background: #1e3d72;
 }
 
+/* Integration Status */
+.integration-status {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.integration-status p {
+    margin: 0;
+    color: #495057;
+}
+
+#statusIndicator {
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
 /* Footer */
 footer {
     background: #333;

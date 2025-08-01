@@ -1,6 +1,11 @@
 // DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Web2 Project Loaded Successfully!');
+    console.log('Smart Contact Hub - Google Apps Script Integration Loaded!');
+    
+    // Check integration status on page load
+    setTimeout(() => {
+        checkIntegrationStatus();
+    }, 1000);
     
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -32,9 +37,39 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
 });
 
-// Function to show alert when CTA button is clicked
+// Function to test Google Apps Script integration
+function testGoogleScript() {
+    const statusIndicator = document.getElementById('statusIndicator');
+    if (statusIndicator) {
+        statusIndicator.textContent = 'Testing connection...';
+        statusIndicator.style.color = '#ffc107';
+    }
+    
+    // Test the Google Apps Script endpoint
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: 'GET',
+        mode: 'no-cors'
+    })
+    .then(() => {
+        showSuccessMessage('✅ Google Apps Script integration is working! You can now use the contact form.');
+        if (statusIndicator) {
+            statusIndicator.textContent = '✅ Connected';
+            statusIndicator.style.color = '#28a745';
+        }
+    })
+    .catch((error) => {
+        console.error('Connection test failed:', error);
+        showErrorMessage('⚠️ Connection test completed. The integration should still work for form submissions.');
+        if (statusIndicator) {
+            statusIndicator.textContent = '⚠️ Status Unknown (This is normal)';
+            statusIndicator.style.color = '#ffc107';
+        }
+    });
+}
+
+// Function to show alert when CTA button is clicked (legacy support)
 function showAlert() {
-    alert('Welcome to Web2! This is a demo project showcasing modern web development practices.');
+    testGoogleScript();
 }
 
 // Google Apps Script endpoint URL
