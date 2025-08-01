@@ -73,7 +73,7 @@ function showAlert() {
 }
 
 // Google Apps Script endpoint URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzr0J2Le-weonsVdFQw2lmf9TKdPPshhhyxPGUMf1k/dev';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec';
 
 // Handle contact form submission
 function handleFormSubmit(e) {
